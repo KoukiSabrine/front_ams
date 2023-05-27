@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: "listProvider", component: ListProviderComponent },
   { path: "addProvider", component: AddProviderComponent },
   { path: "updateProvider/:id", component: UpdateProviderComponent },
-  {path:"listByPovider/:id",component:ListArticlesComponent},
+  {path:"listByPovider/:id",component:ListArticlesComponent}, 
   {path:"addArticle",component:AddArticleComponent},
-  {path:"updateArticle/:id",component:UpdateArticleComponent}
+  {path:"update/:idProvider/:id",component:UpdateArticleComponent}
   //{ path: '**', component: PageNotFoundComponentComponent },
 ];
 

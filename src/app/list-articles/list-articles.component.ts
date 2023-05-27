@@ -29,9 +29,27 @@ export class ListArticlesComponent implements OnInit {
     });   
   }
 
-
   updateArticle(id:any,idProvider:any ){
     this.router.navigate(['update' + '/' +idProvider + '/' +id])
+}
+
+deleteArticle(id:any){
+  this.service.deleteArticle(id).subscribe(response => {
+    console.log(response);
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      this.service.listArticlesByProvider(id).subscribe(
+        response => {
+          this.articles = response;
+        },
+        error => {
+          // Handle any errors that occurred during the API call
+          console.error(error);
+        }
+      );
+    }); 
+  
+  })
 }
   
   

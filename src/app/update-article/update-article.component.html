@@ -1,20 +1,19 @@
 <p>Mise à jour d'un article</p>
-<form >
+
     <div class="form-group">
         <label>Label</label>
-        <input  class="form-control" type="text"   />
+        <input  class="form-control" [(ngModel)]="label" type="text"   />
     </div>
     <div class="form-group">
         <label>Price</label>
-        <input  class="form-control" type="text"   />
+        <input  class="form-control" [(ngModel)]="price" type="text"   />
     </div>
     
     <div class="form-group">
         <label>Picture</label>
-        <input  class="form-control" type="text"   />
+        <input  class="form-control" [(ngModel)]="picture" type="text"   />
     </div>
 
-    <input  name="providerId" type="hidden"/>
-    <button class="btn btn-primary">Mise à jour</button>
+    <!-- <input  name="providerId"  type="hidden"/> -->
+    <button class="btn btn-primary" (click)="updateArticle()">Mise à jour</button>
 
-</form>

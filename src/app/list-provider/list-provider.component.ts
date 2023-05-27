@@ -20,7 +20,6 @@ export class ListProviderComponent implements OnInit {
 
 
   deleteProvider(id: any) {
-    //console.log(this.provider);
     this.service.deleteProvider(id).subscribe(response => {
       console.log(response);
       this.refreshListProviders();

@@ -16,8 +16,9 @@ export class AddProviderComponent {
   formation:string="Angular";
 
   persistProvider(provider:any)
-  {
+  {   
     this.service.createProvider(provider).subscribe(data => {this.router.navigate(["listProvider"])});
+    
   }
 
 }

@@ -14,8 +14,8 @@
     <td>{{article.label}}</td>
     <td>{{article.price}}</td>
     <td>{{article.picture}}</td>
-    <td><button  class="btn btn-danger">Supprimer</button></td>
-    <td><button (click)="updateArticle(article.id,8)"  class="btn btn-warning">Modifier</button></td>
+    <td><button  class="btn btn-danger" (click)="deleteArticle(article.id)">Supprimer</button></td>
+    <td><button (click)="updateArticle(article.id,article.provider.id)"  class="btn btn-warning">Modifier</button></td>
     <!-- <td><button (click)="getActicles()"  class="btn btn-primary">Articles</button></td> -->
 
   </tr>
