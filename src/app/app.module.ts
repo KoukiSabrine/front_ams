@@ -12,6 +12,8 @@ import { PageNotFoundComponentComponent } from './page-not-found-component/page-
 import { ListArticlesComponent } from './list-articles/list-articles.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UpdateArticleComponent } from './update-article/update-article.componen
     PageNotFoundComponentComponent,
     ListArticlesComponent,
     AddArticleComponent,
-    UpdateArticleComponent
+    UpdateArticleComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class ListProviderComponent implements OnInit {
       }
     );
   }
-
+  
 
   deleteProvider(id: any) {
     this.service.deleteProvider(id).subscribe(response => {

@@ -5,6 +5,10 @@
       <a class="nav-item nav-link" routerLink="/listProvider" routerLinkActive="active">Liste</a>
       <a class="nav-item nav-link" routerLink="/addProvider" routerLinkActive="active">Ajouter_Provider</a>
       <a class="nav-item nav-link" routerLink="/addArticle" routerLinkActive="active">Ajouter_Article</a>
+      <a class="nav-item nav-link" routerLink="/login" *ngIf="!loginService.isUserLoggedIn()"
+        routerLinkActive="active">Login</a>
+      <a class="nav-item nav-link" routerLink="/logout" *ngIf="loginService.isUserLoggedIn()"
+        routerLinkActive="active">LogOut</a>
     </div>
   </div>
 </nav>

@@ -1,0 +1,37 @@
+<div class="container col-lg-6">
+    <h1 class="text-center">Authentification</h1>
+    <div class="card">
+    <div class="card-body">
+    <form class="form-group">
+    
+        <ng-container *ngIf="invalidLogin === 2; then ifBlock; else otherBlock"></ng-container>
+
+        <ng-template #ifBlock>
+          <div class="alert alert-warning">{{errorMessage}}</div>
+        </ng-template>
+        
+        <ng-template #otherBlock>
+          <div *ngIf="invalidLogin === 1" class="alert alert-success">{{successMessage}}</div>
+        </ng-template>      
+
+    
+    <div class="form-group">
+    <label for="email">User Name :</label>
+    
+    <input type="text" class="form-control" id="username" [(ngModel)]="username"
+    
+    placeholder="Enter User Name" name="username">
+    </div>
+    <div class="form-group">
+    <label for="pwd">Password:</label>
+    
+    <input type="password" class="form-control" [(ngModel)]="password" id="password"
+    
+    placeholder="Enter password" name="password">
+    </div>
+    
+    <button (click)=checkLogin() class="btn btn-success">Login</button>
+</form>
+</div>
+</div>
+</div>
