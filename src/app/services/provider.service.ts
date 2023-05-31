@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ArticleService } from './article.service';
 @Injectable({
   providedIn: 'root'
@@ -7,11 +7,13 @@ import { ArticleService } from './article.service';
 export class ProviderService {
 
   urlProviders = 'http://127.0.0.1:8080/providers/';
-
-
+  username = sessionStorage.getItem('username');
+  password = sessionStorage.getItem('password');
+  basicToken=sessionStorage.getItem('basicToken');
   constructor(private Http: HttpClient, private articleService: ArticleService) { }
   listProviders() {
-    return this.Http.get(this.urlProviders);
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.username + ':' + this.password) });
+    return this.Http.get(this.urlProviders, { headers });
   }
 
   deleteProvider(idProvider: any) {

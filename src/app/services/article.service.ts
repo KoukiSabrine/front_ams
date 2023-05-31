@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,15 +6,20 @@ import { Injectable } from '@angular/core';
 })
 export class ArticleService {
   urlArticles="http://localhost:8080/articles"
+  username = sessionStorage.getItem('username');
+  password = sessionStorage.getItem('password');
+  basicToken:any =sessionStorage.getItem('basicToken');
+
   constructor(private Http: HttpClient) { }
   
   listArticles() {
     return this.Http.get(this.urlArticles + '/list');
     }
 
-  listArticlesByProvider(id:any) {
-    console.log("hello",id)
-    return this.Http.get(this.urlArticles + '/listByPovider/' + id);
+  listArticlesByProvider(id:any) {   
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.username + ':' + this.password) });
+ 
+    return this.Http.get(this.urlArticles + '/listByPovider/' + id, { headers });
     }
 
     getArticle(id: any) {
@@ -22,7 +27,6 @@ export class ArticleService {
     } 
 
     updateArticle(article: any,providerId:any) {
-      console.log("hhhh",article)
       return this.Http.put(this.urlArticles + '/update/'+ providerId+ '/'+ article['id'], article);
     }
 
@@ -31,7 +35,6 @@ export class ArticleService {
     }
 
     createArticle(article: any) {
-      console.log("yyyyy",article['provider']['id'])
       return this.Http.post(this.urlArticles+ '/add/'+article['provider']['id'],article);
     }
 }

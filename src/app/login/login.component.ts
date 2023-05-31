@@ -19,12 +19,17 @@ ngOnInit() {
 }
 
 checkLogin() {
-  if (this.loginservice.authenticate(this.username, this.password)) {
-    this.router.navigate(['/listProvider'])
-    this.invalidLogin = 1;
+  this.loginservice.authenticate(this.username, this.password).subscribe(
+    data=>  {this.router.navigate(['/listProvider'])},
+    error=> {this.invalidLogin = 2}
+  )
 
-    } else
-    this.invalidLogin = 2
+  // if (this.loginservice.authenticate(this.username, this.password)) {
+  //   this.router.navigate(['/listProvider'])
+  //   this.invalidLogin = 1;
+
+  //   } else
+  //   this.invalidLogin = 2
     }
     
 }
