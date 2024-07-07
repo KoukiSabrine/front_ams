@@ -6,4 +6,4 @@ angular
 * authentication:
 * -store username in sessionStorage 
 * check credentials (username,password)
-* secure routes using gaurd => you cannot access routes when you are not logged in
+* secure routes using guard => you cannot access routes when you are not logged in
